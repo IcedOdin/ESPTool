@@ -1,7 +1,8 @@
 #ifndef _TEXTINPUTSCREEN_H_
 #define _TEXTINPUTSCREEN_H_
 
-#include "SSD1306.h"
+#include <Wire.h>
+#include "SSD1306Wire.h"
 #include "Screen.h"
 #include <Arduino.h>
 
@@ -19,14 +20,14 @@ private:
   int mCurrentCharPos;
 
 public:
-  TextInputScreen(SSD1306 *display, const String message);
+  TextInputScreen(SSD1306Wire *display, const String message);
   ~TextInputScreen();
   void draw();
 
   inline String getInputString() { return mInput; }
   inline String setInputString(const String &text) {
     mInput = text;
-    mCurrentCharPos = text.length() - 1;
+    mCurrentCharPos = text.length() -1;
   }
 
   inline void nextChar() {

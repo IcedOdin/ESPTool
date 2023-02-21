@@ -1,6 +1,6 @@
 #include "MessageScreen.h"
 
-MessageScreen::MessageScreen(SSD1306 *display, const String message,
+MessageScreen::MessageScreen(SSD1306Wire *display, const String message,
                              const String ackMessage)
     : Screen(display), mMessage(message), mAckMessage(ackMessage) {}
 

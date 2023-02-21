@@ -2,7 +2,7 @@
 #define _LISTSCREEN_H_
 
 #include "LinkedList.h"
-#include "SSD1306.h"
+#include "SSD1306Wire.h"
 #include "Screen.h"
 #include <Arduino.h>
 
@@ -40,7 +40,7 @@ private:
   bool mSelectable;
 
 public:
-  ListScreen(SSD1306 *display, bool elementsAreSelectable = true);
+  ListScreen(SSD1306Wire *display, bool elementsAreSelectable = true);
   ~ListScreen();
   void draw();
   inline void addItem(ListItem *item) { mItems->push_back(item); }

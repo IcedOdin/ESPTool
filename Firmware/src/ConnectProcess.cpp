@@ -7,7 +7,7 @@
 #include "Process.h"
 #include "TextInputScreen.h"
 
-ConnectProcess::ConnectProcess(SSD1306 *display, int wlanNumberFromScan)
+ConnectProcess::ConnectProcess(SSD1306Wire *display, int wlanNumberFromScan)
     : Process(CONNECT_PROCESS_NAME, NULL),
       mWlanNumberFromScan(wlanNumberFromScan), mCurrentStatus(UNKNOWN),
       mDisplay(display) {

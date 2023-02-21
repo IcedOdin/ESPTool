@@ -1,6 +1,6 @@
 #include "LoadingScreen.h"
 
-LoadingScreen::LoadingScreen(SSD1306 *display, const String message)
+LoadingScreen::LoadingScreen(SSD1306Wire *display, const String message)
     : Screen(display), mMessage(message), mProgress(0), mLastUpdateTime(0),
       mLastIndeterminateProgress(0) {}
 

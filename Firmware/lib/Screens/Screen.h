@@ -1,9 +1,12 @@
 #ifndef _SCREEN_H_
 #define _SCREEN_H_
 
-#include "SSD1306.h"
+#include <OLEDDisplay.h>
+#include <Wire.h>
+#include "SSD1306Wire.h"
 #include <Arduino.h>
 
+#define DISPLAY_HEIGHT 64
 #define SCREEN_HEIGHT 50
 #define SCREEN_WIDTH 128
 #define SCREEN_START_X 0
@@ -12,13 +15,13 @@
 class Screen {
 private:
 protected:
-  SSD1306 *mDisplay;
+  SSD1306Wire *mDisplay;
 
 public:
-  Screen(SSD1306 *display) : mDisplay(display) {}
+  Screen(SSD1306Wire *display) : mDisplay(display) {}
   virtual ~Screen(){};
   virtual void draw() = 0;
-  inline SSD1306 *getDisplay() { return mDisplay; }
+  inline SSD1306Wire *getDisplay() { return mDisplay; }
 
   void clear() {
     mDisplay->setColor(BLACK);

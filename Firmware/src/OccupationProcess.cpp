@@ -2,7 +2,7 @@
 #include "BarGraphScreen.h"
 #include "ESP8266WiFi.h"
 
-OccupationProcess::OccupationProcess(SSD1306 *display) : ScanProcess(display) {}
+OccupationProcess::OccupationProcess(SSD1306Wire *display) : ScanProcess(display) {}
 
 void OccupationProcess::showResult(int numNetworksDiscovered) {
   // switch to a new ListScreen to show the result

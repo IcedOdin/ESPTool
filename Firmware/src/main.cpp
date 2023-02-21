@@ -2,12 +2,13 @@
 #include <Ticker.h>
 #include <Wire.h>
 
+#include <OLEDDisplay.h>
 #include "AnalogInput.h"
 #include "Button.h"
 #include "ConnectProcess.h"
 #include "ESP8266WiFi.h"
 #include "OccupationProcess.h"
-#include "SSD1306.h"
+#include "SSD1306Wire.h"
 #include "ScanHostsProcess.h"
 #include "ScanProcess.h"
 
@@ -18,7 +19,7 @@
 // include pin definitions
 #include "defs.h"
 
-SSD1306 display(0x3C, 4, 5);
+SSD1306Wire display(0x3C, 4, 5, GEOMETRY_128_64);
 AnalogInput batteryVoltage(VBAT_PIN, VBAT_MAX / ADC_MAX, 10);
 Button down(12, true, true);
 Button up(13, true, true);
@@ -27,6 +28,7 @@ Ticker buttonUpdater;
 
 ScanProcess scanner(&display);
 Process *currentProcess = &scanner;
+#define DISPLAY_WIDTH 128
 
 void updateButton() {
   down.update();
@@ -51,7 +53,7 @@ void drawStatusBar() {
   }
 
   display.drawXbm(DISPLAY_WIDTH - ICON_BATTERY_WIDTH, 2, ICON_BATTERY_WIDTH,
-                  ICON_BATTERY_HEIGHT, currentVoltageImage);
+                  ICON_BATTERY_HEIGHT, *currentVoltageImage);
 
   screenWidthLeft -= ICON_BATTERY_WIDTH + 2;
 

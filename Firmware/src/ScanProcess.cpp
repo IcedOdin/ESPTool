@@ -4,7 +4,7 @@
 #include "LoadingScreen.h"
 #include "Process.h"
 
-ScanProcess::ScanProcess(SSD1306 *display)
+ScanProcess::ScanProcess(SSD1306Wire *display)
     : Process(SCAN_PROCESS_NAME, NULL), mDisplay(display) {}
 
 ScanProcess::~ScanProcess() { delete mScreen; }

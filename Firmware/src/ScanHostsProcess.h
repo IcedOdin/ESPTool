@@ -23,7 +23,7 @@ private:
   ip_addr_t mNetMask;
   ip_addr_t mHost;
   ip_addr_t mCurrentHost;
-  SSD1306 *mDisplay;
+  SSD1306Wire *mDisplay;
   Pinger *mPinger;
 
   inline ip_addr_t IPAddress2ip_addr_t(IPAddress ip) {
@@ -35,7 +35,7 @@ private:
                              u32_t responseTime, void *arg);
 
 public:
-  ScanHostsProcess(SSD1306 *display);
+  ScanHostsProcess(SSD1306Wire *display);
   ~ScanHostsProcess();
   void initialize();
   Process *update();

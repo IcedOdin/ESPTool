@@ -9,7 +9,7 @@
 #include "lwip/netif.h"
 #include "lwip/raw.h"
 #include "lwip/sys.h"
-#include "lwip/timers.h"
+#include "lwip/timeouts.h"
 
 #include "LinkedList.h"
 

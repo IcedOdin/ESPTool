@@ -1,7 +1,8 @@
 #ifndef _BARGRAPHSCREEN_H_
 #define _BARGRAPHSCREEN_H_
 
-#include "SSD1306.h"
+#include <Wire.h>
+#include "SSD1306Wire.h"
 #include "Screen.h"
 #include <Arduino.h>
 
@@ -13,7 +14,7 @@ private:
   String mMessage;
 
 public:
-  BarGraphScreen(SSD1306 *display, const String message, int numBars);
+  BarGraphScreen(SSD1306Wire *display, const String message, int numBars);
   ~BarGraphScreen();
   void draw();
   inline void setBarValue(int bar, int value) { mBarValues[bar] = value; }

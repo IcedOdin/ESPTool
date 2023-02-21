@@ -1,6 +1,6 @@
 #include "TextInputScreen.h"
 
-TextInputScreen::TextInputScreen(SSD1306 *display, const String message)
+TextInputScreen::TextInputScreen(SSD1306Wire *display, const String message)
     : Screen(display), mMessage(message), mInput((char)START_CHAR),
       mCurrentCharPos(0) {}
 

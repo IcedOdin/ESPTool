@@ -4,7 +4,7 @@
 #include "MessageScreen.h"
 #include "Process.h"
 
-ScanHostsProcess::ScanHostsProcess(SSD1306 *display)
+ScanHostsProcess::ScanHostsProcess(SSD1306Wire *display)
     : Process(SCAN_HOST_PROCESS_NAME, NULL), mDisplay(display), mPinger(NULL) {}
 
 ScanHostsProcess::~ScanHostsProcess() {

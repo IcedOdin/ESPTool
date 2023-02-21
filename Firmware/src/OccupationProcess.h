@@ -11,7 +11,7 @@
 class OccupationProcess : public ScanProcess {
 
 public:
-  OccupationProcess(SSD1306 *display);
+  OccupationProcess(SSD1306Wire *display);
 
   void handleInput(button_t button, status_t action);
   void showResult(int numNetworksDiscovered);

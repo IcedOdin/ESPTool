@@ -1,7 +1,7 @@
 #ifndef _LOADINGSCREEN_H_
 #define _LOADINGSCREEN_H_
 
-#include "SSD1306.h"
+#include "SSD1306Wire.h"
 #include "Screen.h"
 #include <Arduino.h>
 
@@ -15,7 +15,7 @@ private:
   int mLastIndeterminateProgress;
 
 public:
-  LoadingScreen(SSD1306 *display, const String message);
+  LoadingScreen(SSD1306Wire *display, const String message);
   ~LoadingScreen();
   void draw();
   inline void setProgress(int newProgress) { mProgress = newProgress; }

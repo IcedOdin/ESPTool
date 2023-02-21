@@ -1,6 +1,6 @@
 #include "BarGraphScreen.h"
 
-BarGraphScreen::BarGraphScreen(SSD1306 *display, const String message,
+BarGraphScreen::BarGraphScreen(SSD1306Wire *display, const String message,
                                int numBars)
     : Screen(display), mNumBars(numBars), mBarValues(new int[numBars]),
       mBarTitles(new String[numBars]), mMessage(message) {

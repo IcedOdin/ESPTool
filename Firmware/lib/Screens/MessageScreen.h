@@ -1,7 +1,8 @@
 #ifndef _MESSAGESCREEN_H_
 #define _MESSAGESCREEN_H_
 
-#include "SSD1306.h"
+#include <Wire.h>
+#include "SSD1306Wire.h"
 #include "Screen.h"
 #include <Arduino.h>
 
@@ -11,7 +12,7 @@ private:
   const String mAckMessage;
 
 public:
-  MessageScreen(SSD1306 *display, const String message,
+  MessageScreen(SSD1306Wire *display, const String message,
                 const String ackMessage);
   ~MessageScreen();
   void draw();

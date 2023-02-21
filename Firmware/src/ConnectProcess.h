@@ -26,7 +26,7 @@ private:
   bool mDidDelete;
   int mWlanNumberFromScan;
   connect_status_t mCurrentStatus;
-  SSD1306 *mDisplay;
+  SSD1306Wire *mDisplay;
 
   void promptForPassword();
   void connectToWiFi(const String &passphrase);
@@ -34,7 +34,7 @@ private:
   void showConnectionError();
 
 public:
-  ConnectProcess(SSD1306 *display, int wlanNumberFromScan);
+  ConnectProcess(SSD1306Wire *display, int wlanNumberFromScan);
   ~ConnectProcess();
   void initialize();
   Process *update();

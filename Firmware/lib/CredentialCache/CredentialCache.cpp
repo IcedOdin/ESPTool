@@ -1,12 +1,13 @@
 #include "CredentialCache.h"
+#include "LittleFS.h"
 #include "FS.h"
-void CredentialCache::begin() { SPIFFS.begin(); }
+void CredentialCache::begin() { LittleFS.begin(); }
 
-bool CredentialCache::isFormatted() { return SPIFFS.exists(FORMAT_MAGIC_FILE); }
+bool CredentialCache::isFormatted() { return LittleFS.exists(FORMAT_MAGIC_FILE); }
 
 void CredentialCache::format() {
-  SPIFFS.format();
-  File magic = SPIFFS.open(FORMAT_MAGIC_FILE, "w+");
+  LittleFS.format();
+  File magic = LittleFS.open(FORMAT_MAGIC_FILE, "w+");
   magic.print(FORMAT_MAGIC_FILE);
   magic.close();
 }
@@ -21,12 +22,12 @@ String CredentialCache::getFileName(String ssid) {
 
 bool CredentialCache::hasPassphrase(const String &ssid) {
   String filePath = getFileName(ssid);
-  return SPIFFS.exists(filePath);
+  return LittleFS.exists(filePath);
 }
 
 String CredentialCache::getPassphrase(const String &ssid) {
   String filePath = getFileName(ssid);
-  File passFile = SPIFFS.open(filePath, "r");
+  File passFile = LittleFS.open(filePath, "r");
 
   String passPhrase = passFile.readStringUntil(FILE_TERMINATOR);
 
@@ -39,7 +40,7 @@ void CredentialCache::savePassphrase(const String &ssid,
                                      const String &passphrase) {
   String filePath = getFileName(ssid);
 
-  File passFile = SPIFFS.open(filePath, "w+");
+  File passFile = LittleFS.open(filePath, "w+");
 
   passFile.println(passphrase);
 

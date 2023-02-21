@@ -15,12 +15,12 @@
 class ScanProcess : public Process {
 protected:
   bool mScanComplete;
-  SSD1306 *mDisplay;
+  SSD1306Wire *mDisplay;
 
   void fillList(int);
 
 public:
-  ScanProcess(SSD1306 *display);
+  ScanProcess(SSD1306Wire *display);
   ~ScanProcess();
   void initialize();
   Process *update();

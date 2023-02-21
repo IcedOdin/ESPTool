@@ -1,6 +1,6 @@
 #include "ListScreen.h"
 
-ListScreen::ListScreen(SSD1306 *display, bool elementsAreSelectable)
+ListScreen::ListScreen(SSD1306Wire *display, bool elementsAreSelectable)
     : Screen(display), mItems(new LinkedList<ListItem *>()), mScrollOffset(0),
       mSelectedElementOnScreen(0), mSelectable(elementsAreSelectable) {
   // invisibly "preselect" the last item on the screen if there is no cursor
